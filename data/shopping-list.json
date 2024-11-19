@@ -18,5 +18,9 @@
   {
     "name": "SUGAR",
     "quantity": 1
+  },
+  {
+    "name": "Apples",
+    "quantity": 20
   }
 ]
