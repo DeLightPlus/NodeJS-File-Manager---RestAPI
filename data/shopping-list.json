@@ -1,26 +1,10 @@
 [
   {
-    "name": "testitem",
-    "quantity": 0
-  },
-  {
-    "name": "TEABAGS",
+    "name": "Juice",
     "quantity": 2
   },
   {
-    "name": "COFFEE",
-    "quantity": 1
-  },
-  {
-    "name": "MILK",
-    "quantity": 2
-  },
-  {
-    "name": "SUGAR",
-    "quantity": 1
-  },
-  {
-    "name": "Apples",
+    "name": "Pears",
     "quantity": 20
   }
 ]

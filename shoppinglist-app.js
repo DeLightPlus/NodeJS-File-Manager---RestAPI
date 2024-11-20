@@ -1,5 +1,3 @@
-
-
 const http = require('http');
 const fs = require('fs');
 
@@ -36,7 +34,7 @@ const writeShoppingList = (list) =>
 const server = http.createServer((req, res) => {
     const method = req.method;
     const url = req.url;
-    console.log('url:', url);
+    console.log("method: ", method,' url:', url);
     
     const [pathname, queryString] = req.url.split('?'); // Manually split URL
 
@@ -70,20 +68,26 @@ const server = http.createServer((req, res) => {
                 break;
 
             case 'PUT':                
-                const id = parseInt(new URLSearchParams(queryString).get('index')); // Parse query string manually
+                const queryParams = new URLSearchParams(queryString);
+                const id = parseInt(queryParams.get('index'));
                 let updateBody = '';
-                console.log('PUT | parseInd.iNdEX: ', id);
+                console.log("what?");               
+                
                 
                 req.on('data', chunk => { updateBody += chunk.toString(); });
+                console.log('PUT | parseInd.iNdEX: ', id, "body: ", updateBody);
                 req.on('end', () => {
                     const updatedItem = JSON.parse(updateBody);
                     const currentList = readShoppingList();
+                    console.log(currentList);
+                    
                     if (id >= currentList.length || id < 0) 
                     {
                         res.writeHead(404);
                         res.end( JSON.stringify({ error: 'Item not found' }) );
                         return;
                     }
+
                     currentList[id] = updatedItem;
                     writeShoppingList(currentList);
                     res.writeHead(200);
